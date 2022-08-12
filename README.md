@@ -1,4 +1,4 @@
-# Minesweeper-Game-PythonMinesweeper Game
+# Minesweeper
 Team Members: Talon Knowlton and Kai Gonzalez
 
 Language: Python 3.8.10
@@ -6,7 +6,9 @@ Language: Python 3.8.10
 File List:
 
 main_minesweeper.py is where you begin running the game
+
 game.py has the layout of the game screen
+
 cell.py creates individual cells as objects and gives them the functionality of the minesweeper game
 
 
