@@ -14,7 +14,7 @@ import csv,os
 class Game:
     def __init__(self, window):
         self.timer_id = None
-        self.game_size = 13
+        self.game_size = 15 #can change game size, don't go over 15 
         self.start_time = None
         self.cells = None
         self.window = window
@@ -202,7 +202,19 @@ class Game:
 
     def check_winner(self):
         """returns True when users create """
-        if self.correct_flag_count == self.total_mines:
+        
+        #start of addon
+        total_cells_uncovered = 0
+        for x in range(self.game_size):
+            for y in range(self.game_size):
+                currCell = self.cells[x][y]
+                if not currCell.isMine and currCell.state == "MINED":
+                    total_cells_uncovered+=1
+
+        total_safe_spots = pow(self.game_size,2)-self.total_mines
+        #end of addon
+
+        if (self.correct_flag_count == self.total_mines and (total_cells_uncovered == total_safe_spots)):
             self.end_game(True)
 
     def end_game(self, won):
